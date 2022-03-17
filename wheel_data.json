@@ -1,14 +1,9 @@
 {
-"colorArray":["#51B3C5"],
+"colorArray":[ "#364C62", "#F1C40F", "#E67E22", "#E74C3C", "#ECF0F1", "#95A5A6", "#16A085", "#27AE60", "#2980B9", "#8E44AD", "#2C3E50", "#F39C12", "#D35400", "#C0392B", "#BDC3C7","#1ABC9C", "#2ECC71", "#E87AC2", "#3498DB", "#9B59B6", "#7F8C8D"],
 
 "segmentValuesArray" : [
   {"probability":1, "type": "string", "value": "HOLIDAY FOR^TWO", "win": true, "resultText": "You won a holiday!", "userData": {"score":1000000}},
-  {"probability":1, "type": "image", "value": "/moneriswheel/media/i1.png", "win": false, "resultText": "You’re good to Go to Funky Chow Kitchen for their Godzilla Roll", "userData": {"score":0}},
-  {"probability":1, "type": "image", "value": "/moneriswheel/media/i2.png", "win": false, "resultText": "Grand Cantina", "userData": {"score":0}},
-  {"probability":1, "type": "image", "value": "/moneriswheel/media/i3.png", "win": false, "resultText": "Slices Pizza", "userData": {"score":0}},
-  {"probability":1, "type": "image", "value": "/moneriswheel/media/i4.png", "win": false, "resultText": "Dope as Duck", "userData": {"score":0}},
-  {"probability":1, "type": "image", "value": "/moneriswheel/media/i5.png", "win": false, "resultText": "Sitara", "userData": {"score":0}},
-  {"probability":1, "type": "image", "value": "/moneriswheel/media/i6.png", "win": false, "resultText": "Eva's Original Chimney's", "userData": {"score":0}},
+  {"probability":1, "type": "image", "value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/tip_sqr.svg", "win": false, "resultText": "NOBODY LIKES A SQUARE :&#40;", "userData": {"score":0}},
 
 ],
 

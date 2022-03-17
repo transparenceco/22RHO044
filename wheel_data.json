@@ -9,7 +9,7 @@
 
   "svgWidth": 1024,
   "svgHeight": 1024,
-  "wheelStrokeColor": "#4294A4",
+  "wheelStrokeColor": "#D0BD0C",
   "wheelStrokeWidth": 18,
   "wheelSize": 900,
   "wheelTextOffsetY": 80,
@@ -18,7 +18,7 @@
   "wheelImageOffsetY": 40,
   "wheelImageSize": 50,
   "centerCircleSize": 360,
-  "centerCircleStrokeColor": "#4294A4",
+  "centerCircleStrokeColor": "#F1DC15",
   "centerCircleStrokeWidth": 12,
   "centerCircleFillColor": "#EDEDED",
   "centerCircleImageUrl":"media/logo.png",

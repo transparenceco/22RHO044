@@ -7,8 +7,7 @@
   {"probability":1, "type": "image", "value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/tip_oct.svg", "win": false, "resultText": "LOSE WITH AN OCTAGON!", "userData": {"score":0}},
   {"probability":1, "type": "image", "value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/tip_triangle.svg", "win": true, "resultText": "A TRIANGLE MEANS A PRIZE!", "userData": {"score":40}},
   {"probability":1, "type": "image", "value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/tip_circle.svg", "win": false, "resultText": "A CIRCLE IS A WINNER!", "userData": {"score":0}},
-  {"probability":1, "type": "image", "value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/tip_hex.svg", "win": false, "resultText": "A HEXAGON IS A LOSE", "userData": {"score":50}}, 
-  {"probability":1, "type": "string", "value": "LOSE ALL", "win": false, "resultText": "YOU LOSE EVERYTHING!", "userData": {"score":2}}
+
 ],
 
   "svgWidth": 1024,

@@ -2,6 +2,7 @@
 
 @font-face { font-family: Avenir; font-weight: black; src: url('/moneriswheel/font/Avenir-Black-03.otf'); }
 
+
 h1 { 
     font-family: 'Avenir';
     font-style: normal;
@@ -25,6 +26,10 @@ h2 {
     color: #2B647A;
 }
 
+h3 {
+    font-size:1.5em;
+}
+
 p {
     font-family: 'Barlow';
     font-style: normal;
@@ -34,7 +39,14 @@ p {
     /* or 48px */
 
     color: #494949;
+    margin-top: 10px;
 }
+
+.heading {
+    padding: 50px 0 0 79px;
+    text-align: left;
+    max-width: 720px;}
+
 
 /* original styling */
 
@@ -91,7 +103,7 @@ html {
 #container {
     width: 100vw;
     height: 100vh;
-	margin-top: 2rem;
+	margin-top: 0;
 
 }
 
@@ -102,8 +114,7 @@ html {
     justify-content: center;
     flex-direction: column;
     margin: 0;
-    height: 1180px;
-
+    height: 1130px;
 }
 
 .wheelSVG {
@@ -158,10 +169,10 @@ html {
 }
 
 button {
-    position: relative;
+    position: inherit;
     width: 60vw;
     /* top: 20px; */
-    max-width: 400px;
+    max-width: 660px;
     padding: 20px;
     font-weight: 700;
     font-size: 2rem;

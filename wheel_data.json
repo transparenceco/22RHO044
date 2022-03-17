@@ -4,6 +4,9 @@
 "segmentValuesArray" : [
   {"probability":1, "type": "string", "value": "HOLIDAY FOR^TWO", "win": true, "resultText": "You won a holiday!", "userData": {"score":1000000}},
   {"probability":1, "type": "image", "value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/tip_sqr.svg", "win": false, "resultText": "NOBODY LIKES A SQUARE :&#40;", "userData": {"score":0}},
+  {"probability":1, "type": "image", "value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/tip_oct.svg", "win": false, "resultText": "LOSE WITH AN OCTAGON!", "userData": {"score":0}},
+  {"probability":1, "type": "image", "value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/tip_triangle.svg", "win": true, "resultText": "A TRIANGLE MEANS A PRIZE!", "userData": {"score":40}},
+  {"probability":1, "type": "image", "value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/tip_circle.svg", "win": false, "resultText": "A CIRCLE IS A WINNER!", "userData": {"score":0}},
 
 ],
 

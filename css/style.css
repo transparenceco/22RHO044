@@ -11,6 +11,7 @@ h1 {
     /* or 148px */
 
     color: #2B647A;
+    margin:0px;
 }
 
 h2 {
@@ -108,8 +109,7 @@ html {
 .wheelSVG {
    position: relative;
     overflow: visible;
-    height: 75vh;
-}
+    height: 61vh;}
 
 .wheelText {
     text-anchor: start;
@@ -165,11 +165,11 @@ button {
     font-weight: 700;
     font-size: 2rem;
     color: #ededed;
-    border-radius: 6px;
+    border-radius: 86px;
     border: none;
     box-shadow: 0 2px 0 #D71559;
     cursor: pointer;
-    font-family: Montserrat, sans-serif;
+    font-family: 'Avenir';
 }
 
 @media only screen and (max-width: 480px) {

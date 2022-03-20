@@ -7,8 +7,7 @@
   {"probability":1, "type": "image", "value": "/22RHO044/media/i3.svg", "win": true, "resultText": "<h2><h2>You’re good to Go<br>to Funky Chow Kitchen<br>for their Godzilla Roll</h2><br><p>Sushi Rice, Lobster, Tempura Fried Asparagus, Avocado, Wagyu Beef, Truffle Oil, Scallions.</p>", "userData": {"score":40}},
   {"probability":1, "type": "image", "value": "/22RHO044/media/i4.svg", "win": false, "resultText": "<h2><h2>You’re good to Go<br>to Funky Chow Kitchen<br>for their Godzilla Roll</h2><br><p>Sushi Rice, Lobster, Tempura Fried Asparagus, Avocado, Wagyu Beef, Truffle Oil, Scallions.</p>", "userData": {"score":0}},
   {"probability":1, "type": "image", "value": "/22RHO044/media/i5.svg", "win": false, "resultText": "<h2><h2>You’re good to Go<br>to Funky Chow Kitchen<br>for their Godzilla Roll</h2><br><p>Sushi Rice, Lobster, Tempura Fried Asparagus, Avocado, Wagyu Beef, Truffle Oil, Scallions.</p>", "userData": {"score":50}}, 
-  {"probability":1, "type": "image", "value": "/22RHO044/media/i6.svg", "win": false, "resultText": "<h2><h2>You’re good to Go<br>to Funky Chow Kitchen<br>for their Godzilla Roll</h2><br><p>Sushi Rice, Lobster, Tempura Fried Asparagus, Avocado, Wagyu Beef, Truffle Oil, Scallions.</p>", "userData": {"score":0}},
-  {"probability":1, "type": "string", "value": "LOSE ALL", "win": false, "resultText": "YOU LOSE EVERYTHING!", "userData": {"score":2}}
+  {"probability":1, "type": "image", "value": "/22RHO044/media/i6.svg", "win": false, "resultText": "<h2><h2>You’re good to Go<br>to Funky Chow Kitchen<br>for their Godzilla Roll</h2><br><p>Sushi Rice, Lobster, Tempura Fried Asparagus, Avocado, Wagyu Beef, Truffle Oil, Scallions.</p>", "userData": {"score":0}}
 ],
 
   "svgWidth": 1024,

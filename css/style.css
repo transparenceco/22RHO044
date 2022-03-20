@@ -114,7 +114,7 @@ html {
     justify-content: center;
     flex-direction: column;
     margin: 0;
-    height: 1130px;
+    height: 1130px; 
 }
 
 .wheelSVG {
@@ -138,23 +138,29 @@ html {
 .toast {
     border-radius: 12px;
     opacity: 0;
-    background-color: #E81D62;
+    background-color: #ffffff;
     position: absolute;
     overflow: hidden;
     color: #FFF;
     font-family: Montserrat, sans-serif;
     font-weight: 400;
-    width: 50vw;
+    width: 900px;
+    height:1477px;
     padding: 20px 40px;
     
     max-width: 1000px;
 }
 
+.toast h1 {}
+
 .toast p {
+
+    color: #494949;
+    margin-top: 10px;
     clear: both;
-    font-family: Montserrat, Arial, sand-serif;
+    font-family: 'Barlow';
     margin: 23px;
-    font-size: 30px;
+    font-size: 38px;
     color: #ededed;
     letter-spacing: 0;
     -webkit-touch-callout: none;
@@ -163,7 +169,7 @@ html {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    line-height: 32px;
+    line-height: 48px;
     -webkit-transition: line-height .2s ease;
     transition: line-height .2s ease;
 }

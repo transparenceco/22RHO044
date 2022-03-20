@@ -2,12 +2,12 @@
 "colorArray":[ "#51B3C5"],
 
 "segmentValuesArray" : [
-  {"probability":1, "type": "image", "value": "/22RHO044/media/i1.svg", "win": false, "resultText": " <h2>You’re good to Go to Funky Chow Kitchen for their Godzilla Roll</h2>Sushi Rice, Lobster, Tempura Fried Asparagus, Avocado, Wagyu Beef, Truffle Oil, Scallions.", "userData": {"score":0}},
-  {"probability":1, "type": "image", "value": "/22RHO044/media/i2.svg", "win": false, "resultText": "<h2>You’re good to Go to The Grand Cantina for their Barbacoa Taco</h2>Corn Tortilla, Slow Roasted Beef, White Onion, Cilantro, Chipotle Peppers, Lime.", "userData": {"score":0}},
-  {"probability":1, "type": "image", "value": "/22RHO044/media/i3.svg", "win": true, "resultText": "<h2>You’re good to Go to Slices Pizza for The Windsor Pie</h2>White Flour, Whole Wheat Flour, Tomato Sauce, Mozzarella Cheese, Shredded Pepperoni, Canned Mushrooms, Green Peppers and White Onions", "userData": {"score":40}},
-  {"probability":1, "type": "image", "value": "/22RHO044/media/i4.svg", "win": false, "resultText": "<h2>You’re good to Go to Dope As Duck for their Braised Brisket Sandwich</h2>Pickled onions , Mayo, Cabbage, Braised Beef Brisket, Mustard, Brioche bun.", "userData": {"score":0}},
-  {"probability":1, "type": "image", "value": "/22RHO044/media/i5.svg", "win": false, "resultText": "<h2>You’re good to Go to Sitara Indian Cuisine for their Butter Chicken</h2>Chicken breasts, ginger, plain yogurt, crushed tomatoes, turmeric powder, Dried fenugreek leaves, garlic.", "userData": {"score":50}}, 
-  {"probability":1, "type": "image", "value": "/22RHO044/media/i6.svg", "win": false, "resultText": "<h2>You’re good to Go to Eva’s Original Chimneys for their Caprisi Chimwich</h2>Chimney Cone, Tomato, Reduced Balsamic, Pesto, Onion and Mozzarella", "userData": {"score":0}}
+  {"probability":1, "type": "image", "value": "/22RHO044/media/i1.svg", "win": false, "resultText": "<img src='media/funkychow.jpg'><div class='description'> <h2>You’re good to Go to Funky Chow Kitchen for their Godzilla Roll</h2>Windsor, ON</div>", "userData": {"score":0}},
+  {"probability":1, "type": "image", "value": "/22RHO044/media/i2.svg", "win": false, "resultText": "<img src='media/grandcantina.jpg'><div class='description'> <h2>You’re good to Go to The Grand Cantina for their Barbacoa Taco</h2>Windsor, ON</div>", "userData": {"score":0}},
+  {"probability":1, "type": "image", "value": "/22RHO044/media/i3.svg", "win": true, "resultText": "<img src='media/slicespizza.jpg'> <div class='description'><h2>You’re good to Go to Slices Pizza for The Windsor Pie</h2>Windsor, ON</div>", "userData": {"score":40}},
+  {"probability":1, "type": "image", "value": "/22RHO044/media/i4.svg", "win": false, "resultText": "<img src='media/dopeasduck.jpg'> <div class='description'><h2>You’re good to Go to Dope As Duck for their Braised Brisket Sandwich</h2>Etobicoke, ON</div>", "userData": {"score":0}},
+  {"probability":1, "type": "image", "value": "/22RHO044/media/i5.svg", "win": false, "resultText": "<img src='media/sitara.jpg'> <div class='description'><h2>You’re good to Go to Sitara Indian Cuisine for their Butter Chicken</h2>Sarnia, ON</div>", "userData": {"score":50}}, 
+  {"probability":1, "type": "image", "value": "/22RHO044/media/i6.svg", "win": false, "resultText": "<img src='media/evas.jpg'> <div class='description'><h2>You’re good to Go to Eva’s Original Chimneys for their Caprisi Chimwich</h2>Mississauga, ON | Toronto, ON | St. John’s, NL</div>", "userData": {"score":0}}
 ],
 
   "svgWidth": 1024,

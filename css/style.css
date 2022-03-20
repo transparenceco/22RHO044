@@ -2,6 +2,9 @@
 
 @font-face { font-family: Avenir; font-weight: black; src: url('/22RHO044/font/Avenir-Black-03.otf'); }
 
+.description{
+    padding:0 70px;
+}
 
 h1 { 
     font-family: 'Avenir';
@@ -40,7 +43,7 @@ p {
     /* or 48px */
 
     color: #494949;
-    margin-top: 10px;
+    margin:0px;
 }
 
 .heading {
@@ -158,10 +161,10 @@ html {
 .toast p {
 
     color: #494949;
-    margin-top: 10px;
+
     clear: both;
     font-family: 'Barlow';
-    margin: 23px;
+
     font-size: 38px;
     letter-spacing: 0;
     -webkit-touch-callout: none;

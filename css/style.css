@@ -11,7 +11,7 @@ h1 {
     line-height: 89.6%;
     /* or 148px */
 
-    color: #2B647A;
+    color: #051D33;
     margin:0px;
 }
 
@@ -23,17 +23,18 @@ h2 {
     line-height: 100%;
     /* or 63px */
 
-    color: #2B647A;
+    color: #051D33;
 }
 
 h3 {
-    font-size:1.5em;
+    font-size:65px;
+    margin:0;
 }
 
 p {
     font-family: 'Barlow';
-    font-style: normal;
-    font-weight: 300;
+    font-style: light;
+    font-weight: 100;
     font-size: 38px;
     line-height: 127.1%;
     /* or 48px */
@@ -83,8 +84,7 @@ button {
     height: 171px;
     left: 228.26px;
     top: 1646.96px;
-    
-    background: linear-gradient(180deg, #4597A6 30.21%, #51B3C5 100%);
+    background-color:#051D33;
     border-radius: 102px;
 }
 
@@ -136,7 +136,7 @@ html {
 }
 
 .toast {
-    border-radius: 12px;
+    border-radius: 55px;
     opacity: 0;
     background-color: #ffffff;
     position: absolute;
@@ -146,12 +146,14 @@ html {
     font-weight: 400;
     width: 900px;
     height:1477px;
-    padding: 20px 40px;
-    
+    padding:0px;
+    text-align: left;
     max-width: 1000px;
 }
 
-.toast h1 {}
+.toast h2 {
+    line-height: 76px;
+}
 
 .toast p {
 
@@ -161,7 +163,6 @@ html {
     font-family: 'Barlow';
     margin: 23px;
     font-size: 38px;
-    color: #ededed;
     letter-spacing: 0;
     -webkit-touch-callout: none;
     -webkit-user-select: none;

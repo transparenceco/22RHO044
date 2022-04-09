@@ -81,7 +81,7 @@ html {
 }
 
 
-button {
+#container button {
     position: absolute;
     width: 624px;
     height: 171px;
@@ -138,6 +138,18 @@ html {
     letter-spacing: 2px;
 }
 
+.cover {
+    /*color: ##51b3ff;*/
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.6;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    visibility: hidden;
+    background-color: #51b3ff;
+    z-index: -200;
+}
 .toast {
     border-radius: 55px;
     opacity: 0;
@@ -258,3 +270,9 @@ a:link { color:#F1DC16; }
 a:visited { color:#F1DC16; }
 a:hover { color:#F1DC16; }
 a:active { color:#F1DC16;}
+
+#mainContent {
+display: flex;
+    justify-content: center;
+    align-content: center;
+}

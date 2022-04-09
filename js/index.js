@@ -69,10 +69,10 @@ function init() {
     var myWheel = new Spin2WinWheel();
     
     //WITH your own button
-    //myWheel.init({data:jsonData, onResult:myResult, onGameEnd:myGameEnd, onError:myError, spinTrigger: mySpinBtn});
+    myWheel.init({data:jsonData, onResult:myResult, onGameEnd:myGameEnd, onError:myError, spinTrigger: mySpinBtn});
     
     //WITHOUT your own button
-    myWheel.init({data:jsonData, onResult:myResult, onGameEnd:myGameEnd, onError:myError});
+    //myWheel.init({data:jsonData, onResult:myResult, onGameEnd:myGameEnd, onError:myError});
   });
 }
 

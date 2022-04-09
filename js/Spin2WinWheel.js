@@ -20,6 +20,7 @@ function Spin2WinWheel() {
     mainContainer = select('.mainContainer'),
     valueContainer = select('.valueContainer'),
     centerCircle = select('.centerCircle'),
+    cover = select('.cover'),
     toast = select('.toast'),
     toastText = select('.toast p'),
     centerCircleImageContainer = select('.centerCircleImageContainer'),
@@ -77,7 +78,7 @@ function Spin2WinWheel() {
     onResult,
     onGameEnd,
     onError,
-    spinInertiaPlugin,
+    //spinInertiaPlugin,
     gameResultsArray = [],
     pegSnd = new Audio('media/wheel_tick.mp3'),
     spinDestinationArray,
@@ -95,8 +96,10 @@ function Spin2WinWheel() {
     disabledText,
     isDisabled = false,
     wheelProp = gsap.getProperty('.wheel'),
-    initSpinVelocity = null,
+    //initSpinVelocity = null,
     showErrorDelay = 0.1,
+    popupHideDelay = 20,
+    infiniteNumber = 9999999999999999,
     setInitData = function() {
 
       wheelStrokeColor = dataObj.wheelStrokeColor;
@@ -121,7 +124,7 @@ function Spin2WinWheel() {
       segmentStrokeWidth = dataObj.segmentStrokeWidth;
       segmentValuesArray = dataObj.segmentValuesArray;
       numSegments = segmentValuesArray.length;
-      numSpins = (dataObj.numSpins == -1) ? 9999999999999999 : parseInt(dataObj.numSpins);
+      numSpins = (dataObj.numSpins == -1) ? infiniteNumber : parseInt(dataObj.numSpins);
       minSpinDuration = dataObj.minSpinDuration;
       maxSpinDuration = (dataObj.maxSpinDuration <= dataObj.minSpinDuration) ? dataObj.minSpinDuration : dataObj.maxSpinDuration;
       gameOverText = dataObj.gameOverText;
@@ -245,7 +248,7 @@ function Spin2WinWheel() {
         createDraggable();
       }
       
-      showIntroText();
+      //showIntroText();
     },
     randomBetween = function(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
@@ -420,25 +423,41 @@ function Spin2WinWheel() {
       pegSnd.play();
     },
     onWheelPress = function() {
-      // popup.style.visibility = 'hidden';
+
       toast.style.visibility = 'hidden';
+ 
+
+      toast.style.visibility = 'hidden';
+      cover.style.visibility = 'hidden'; 
+
+    },    
+    hideOverlay = function() {
+
+      toast.style.visibility = 'hidden';
+      cover.style.visibility = 'hidden'; 
+      wheelContainer.removeEventListener('click', hideOverlay);
+      
+      gsap.set('#mainContent', {
+        filter: 'blur(0)'
+      })
+
+
+
+
+
 
     },    
     onButtonPress = function() {
       
       toast.style.visibility = 'hidden';
+      cover.style.visibility = 'hidden';
       spinButton.onclick = null;
       spinMultiplier +=2;
 
     },
     onWheelDragEnd = function() {
-      initSpinVelocity = Math.abs(InertiaPlugin.getVelocity(wheel,'rotation'));        
-      //console.log('initSpinVelocity', initSpinVelocity);
+
       disableWheel();
-      //prevent players dragging and dropping the wheel onto a segment
-      if (randomSpins) {
-        spinInertiaPlugin = InertiaPlugin.track(wheel, "rotation");        
-      }
       
     },
     throwUpdate = function(e) {
@@ -474,20 +493,10 @@ function Spin2WinWheel() {
       //work out where the wheel lands
       currentWheelRotation = wheelProp('rotation');
       var normalizedRotation = Math.round(currentWheelRotation % 360);
-      normalizedRotation = (normalizedRotation > 0) ? 360 - normalizedRotation : normalizedRotation;
-      //console.log("complete", currentWheelRotation, normalizedRotation, InertiaPlugin.getVelocity(wheel, 'rotation'))
+      normalizedRotation = (normalizedRotation > 0) ? 360 - normalizedRotation : normalizedRotation;      
 
       normalizedRotation = (normalizedRotation < 0) ? normalizedRotation *= -1 : normalizedRotation;     
             
-      //check to see if spinInertiaPlugin exists (only when randomSpins = true)
-      //console.log(spinInertiaPlugin, Math.abs(InertiaPlugin.getVelocity(wheel,'rotation')))
-      if (spinInertiaPlugin && initSpinVelocity <= invalidSpinThreshold) {
-
-        enableWheel();        
-        showResult('invalidSpin');        
-        return;
-        
-      }
 
       var segId = Math.round(normalizedRotation / rotationStep);
       var winningSegment = segmentArray[segId].path;
@@ -526,7 +535,7 @@ function Spin2WinWheel() {
       if(clickToSpin)return;
       
       wheelDragger[0].applyBounds({
-        minRotation: spinDirection * -9999999999999999,
+        minRotation: spinDirection * -infiniteNumber,
         maxRotation: currentWheelRotation
       });      
     },  
@@ -553,7 +562,7 @@ function Spin2WinWheel() {
       wheelDragger = Draggable.create(wheel, {
         type: 'rotation',
         bounds: {
-          minRotation: spinDirection * -9999999999999999,
+          minRotation: spinDirection * -infiniteNumber,
           maxRotation: 0
         },
         inertia: true,
@@ -589,7 +598,7 @@ function Spin2WinWheel() {
       if(hasProbability){
 
         spinDestinationArray = [];//, numSpins)
-        numSpins = (dataObj.numSpins == -1) ? 9999999999999999 : parseInt(dataObj.numSpins);
+        numSpins = (dataObj.numSpins == -1) ? infiniteNumber : parseInt(dataObj.numSpins);
         checkProbabilityValues();
         
       }
@@ -774,7 +783,7 @@ function Spin2WinWheel() {
         duration: 1,
         text: gameOverText,
         ease: Linear.easeNone,
-        delay: 2
+        delay: popupHideDelay
       })
 
       onGameEnd({gameId:gameId, target:thisWheel, results:gameResultsArray});
@@ -793,24 +802,7 @@ function Spin2WinWheel() {
       updateWheelBounds();
       
       var resultObj;
-      //if it's an error 
-      if (e == "invalidSpin") {
 
-        gsap.set(wheel, {
-            rotation: spinDestinationArray[spinCount]
-          })
-        showToast(invalidSpinText);
-        //create a result object 
-        resultObj = {target:thisWheel, type:'error', spinCount:spinCount, win:null, msg:invalidSpinText, gameId:gameId};
-
-        //fire the error event
-        onError(resultObj);
-        
-        //add result to gameResultsArray
-        gameResultsArray.push(resultObj);
-                   
-        return;
-      }
       //if it's a number then it's a segment
       if (!isNaN(e)) {
         //the JSON contains a property that defines whether the segment is a winner or loser. Useful for backend decisions.
@@ -841,6 +833,7 @@ function Spin2WinWheel() {
     },
     showToast = function(str) {
       toast.style.visibility = 'visible';      
+      cover.style.visibility = 'visible';      
       toastText.innerHTML = str;
       gsap.fromTo(toast, {
         y: 20,
@@ -853,6 +846,17 @@ function Spin2WinWheel() {
         //onStart:onresize,
         ease: 'elastic(0.7, 0.7)'
       })
+
+      gsap.set('#mainContent', {
+        filter: 'blur(3px)'
+      })
+
+      gsap.delayedCall(popupHideDelay, hideOverlay )
+
+      wheelContainer.addEventListener('click', (() => {
+        gsap.killTweensOf(hideOverlay);
+        hideOverlay();      
+        }))
       
     },
     checkNumSegments = function() {
@@ -975,7 +979,7 @@ function Spin2WinWheel() {
       gameResultsArray = [];
 
 
-      showIntroText();
+      //showIntroText();
   }
 
     
@@ -1010,43 +1014,3 @@ Spin2WinWheel.reset = function(){
       document.body.removeChild(document.querySelector('.wheelContainer'));
 
   }  
-/*
-  Spin2WinWheel.checkCookie = function(callback){
-
-    var xobj = new XMLHttpRequest();
-    xobj.open('GET', 'settings.php?f=checkCookie', true); 
-    xobj.onreadystatechange = function() {
-      if (xobj.readyState == 4 && xobj.status == "200") {
-        callback(xobj.responseText)
-        //successfully called IP check
-        //0 means they haven't been here before
-        // if(xobj.responseText == 0){
-
-        //   callback();
-
-        // } else{
-        //   alert("Please come back and play tomorrow!");
-        //   Spin2WinWheel.remove();
-          
-        //   //hide your button here too
-        // }
-      }
-    };
-    xobj.send(null);
-
-  }
-
-  Spin2WinWheel.setCookie = function(){
-
-    var xobj = new XMLHttpRequest();
-    xobj.open('GET', 'settings.php?f=setCookie', true); 
-    xobj.onreadystatechange = function() {
-      if (xobj.readyState == 4 && xobj.status == "200") {
-        console.log(xobj.responseText)
-        //successfully called IP check
-        //0 means they haven't been here before
- 
-      }
-    };    
-    xobj.send(null);    
-  }*/

@@ -272,7 +272,5 @@ a:hover { color:#F1DC16; }
 a:active { color:#F1DC16;}
 
 #mainContent {
-display: flex;
-    justify-content: center;
-    align-content: center;
+
 }

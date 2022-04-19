@@ -1,8 +1,16 @@
 /* Additional styling */
 
+.toastfooter{
+    margin-left: 28%;
+    margin-top:20px;
+}
+
+.centerCircleImageContainer {
+    top:-100px;
+}
 
 #mainContent {
-    height: 490px
+    height: 500px
 }
 
 
@@ -20,7 +28,7 @@ h1 {
     font-family: 'Avenir';
     font-style: normal;
     font-weight: 900;
-    font-size: 165px;
+    font-size: 175px;
     line-height: 89.6%;
     /* or 148px */
 
@@ -32,7 +40,7 @@ h2 {
     font-family: 'Avenir';
     font-style: normal;
     font-weight: 900;
-    font-size: 63px;
+    font-size: 85px;
     line-height: 100%;
     /* or 63px */
 
@@ -48,7 +56,7 @@ p {
     font-family: 'Barlow';
     font-style: light;
     font-weight: 100;
-    font-size: 38px;
+    font-size: 48px;
     line-height: 127.1%;
     /* or 48px */
 
@@ -59,7 +67,7 @@ p {
 .heading {
     padding: 50px 0 0 79px;
     text-align: left;
-    max-width: 720px;}
+    max-width: 800px;}
 
 
 /* original styling */
@@ -174,7 +182,7 @@ html {
     padding:0px;
     text-align: left;
     max-width: 1000px;
-    top: -360px;
+    top: -380px;
 }
 
 .toast h2 {

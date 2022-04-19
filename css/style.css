@@ -95,8 +95,8 @@ html {
     position: absolute;
     width: 624px;
     height: 171px;
-    left: 228.26px;
-    top: 1646.96px;
+    left: 230px;
+    top: 1615px;
     background-color:#051D33;
     border-radius: 102px;
 }
@@ -170,10 +170,11 @@ html {
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     width: 900px;
-    height:1477px;
+    height:1650px;
     padding:0px;
     text-align: left;
     max-width: 1000px;
+    top: -360px;
 }
 
 .toast h2 {

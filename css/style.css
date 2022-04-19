@@ -1,5 +1,15 @@
 /* Additional styling */
 
+
+#mainContent {
+    height: 490px
+}
+
+
+button {
+    font-size: 4em;
+}
+
 @font-face { font-family: Avenir; font-weight: black; src: url('/22RHO044/font/Avenir-Black-03.otf'); }
 
 .description{
@@ -197,7 +207,7 @@ button {
     max-width: 660px;
     padding: 20px;
     font-weight: 700;
-    font-size: 2rem;
+    /* font-size: 2rem; */
     color: #ededed;
     border-radius: 102px;
     border: none;
@@ -270,7 +280,3 @@ a:link { color:#F1DC16; }
 a:visited { color:#F1DC16; }
 a:hover { color:#F1DC16; }
 a:active { color:#F1DC16;}
-
-#mainContent {
-
-}

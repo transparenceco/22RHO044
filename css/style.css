@@ -184,6 +184,21 @@ html {
     max-width: 1000px;
     top: -380px;
 }
+.toast1 {
+    border-radius: 50%;
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+    color: #FFF;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    width: 11%!important;
+    height: 34%!important;
+    padding:0px;
+    text-align: left;
+    max-width: 1000px;
+    top: 373px;
+}
 
 .toast h2 {
     line-height: 76px;

@@ -15,13 +15,15 @@
             <h1>Guess <br>the Dish</h1>
             <p>Spin the wheel and discover a world of flavours with our partners.</p>
         </div>
-        
-     </div>   
+
+    </div>
     <div id="container">
         <button class="spinBtn">TAP TO SPIN!</button>
         <div class="cover"></div>
         <div class="wheelContainer">
-            <svg class="wheelSVG" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" text-rendering="optimizeSpeed" preserveAspectRatio="xMidYMin meet">
+            <svg class="wheelSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" text-rendering="optimizeSpeed"
+                preserveAspectRatio="xMidYMin meet">
                 <defs>
                     <filter id="shadow" x="-100%" y="-100%" width="550%" height="550%">
                         <feOffset in="SourceAlpha" dx="0" dy="0" result="offsetOut"></feOffset>
@@ -40,16 +42,18 @@
                 <g class="centerCircle" />
                 <g class="wheelOutline" />
                 <g class="pegContainer" opacity="1">
-                    <path class="peg" fill="#EEEEEE" d="M22.139,0C5.623,0-1.523,15.572,0.269,27.037c3.392,21.707,21.87,42.232,21.87,42.232 s18.478-20.525,21.87-42.232C45.801,15.572,38.623,0,22.139,0z" />
+                    <path class="peg" fill="#EEEEEE"
+                        d="M22.139,0C5.623,0-1.523,15.572,0.269,27.037c3.392,21.707,21.87,42.232,21.87,42.232 s18.478-20.525,21.87-42.232C45.801,15.572,38.623,0,22.139,0z" />
                 </g>
                 <g class="valueContainer" />
                 <g class="centerCircleImageContainer" />
             </svg>
-            
 
-            <div class="toast">
+
+            <div class="toast" style=" display: flex; justify-content: center;align-items: center;">
                 <p></p>
             </div>
+           
         </div>
 
     </div>
@@ -60,6 +64,7 @@
     <script src='js/TextPlugin.min.js'></script>
     <script src='js/Spin2WinWheel.js'></script>
     <script src="js/index.js"></script>
+
     <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
 </body>
 

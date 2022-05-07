@@ -4,10 +4,10 @@ function Spin2WinWheel() {
 
   var xmlns = "http://www.w3.org/2000/svg",
     xlinkns = "http://www.w3.org/1999/xlink",
-    select = function(s) {
+    select = function (s) {
       return document.querySelector(s);
     },
-    selectAll = function(s) {
+    selectAll = function (s) {
       return document.querySelectorAll(s);
     },
     thisWheel = this,
@@ -45,7 +45,7 @@ function Spin2WinWheel() {
     centerCircleSize,
     centerCircleImageUrl,
     centerCircleImageWidth,
-    centerCircleImageHeight,    
+    centerCircleImageHeight,
     centerCircleRadius,
     segmentStrokeColor,
     segmentStrokeWidth,
@@ -100,7 +100,7 @@ function Spin2WinWheel() {
     showErrorDelay = 0.1,
     popupHideDelay = 20,
     infiniteNumber = 9999999999999999,
-    setInitData = function() {
+    setInitData = function () {
 
       wheelStrokeColor = dataObj.wheelStrokeColor;
       wheelSize = dataObj.wheelSize;
@@ -119,7 +119,7 @@ function Spin2WinWheel() {
       centerCircleRadius = centerCircleSize / 2;
       centerCircleImageUrl = dataObj.centerCircleImageUrl;
       centerCircleImageWidth = dataObj.centerCircleImageWidth;
-      centerCircleImageHeight = dataObj.centerCircleImageHeight;        
+      centerCircleImageHeight = dataObj.centerCircleImageHeight;
       segmentStrokeColor = dataObj.segmentStrokeColor;
       segmentStrokeWidth = dataObj.segmentStrokeWidth;
       segmentValuesArray = dataObj.segmentValuesArray;
@@ -145,7 +145,7 @@ function Spin2WinWheel() {
       //spinDirection = (clickToSpin) ? 1 : spinDirection;
       numRevsPerDestination = spinDirection * (3 * 360);
       //invalidSpinThreshold =  0.5;
-      invalidSpinThreshold =  500;
+      invalidSpinThreshold = 500;
       restrictPlayDuration = dataObj.restrictPlayDuration;
       if (hasShadows) {
         wheelOutline.setAttributeNS(null, 'filter', 'url(#shadow)');
@@ -155,7 +155,7 @@ function Spin2WinWheel() {
         toast.style.boxShadow = "0px 0px 20px rgba(21,21,21,0.5)";
       }
     },
-    setInitPos = function() {
+    setInitPos = function () {
 
       gsap.set('svg', {
         visibility: 'visible'
@@ -185,22 +185,22 @@ function Spin2WinWheel() {
 
 
     },
-    setCenterCircleImage = function(){
+    setCenterCircleImage = function () {
 
       //centerCircleImageContainer
       var centerCircleImage = document.createElementNS(xmlns, "image");
       centerCircleImage.setAttributeNS(xlinkns, "xlink:href", centerCircleImageUrl);
       centerCircleImage.setAttribute("width", centerCircleImageWidth);
       centerCircleImage.setAttribute("height", centerCircleImageHeight);
-      centerCircleImage.setAttribute("x", centerX - (centerCircleImageWidth/2));
-      centerCircleImage.setAttribute("y", centerY - (centerCircleImageHeight/2));
+      centerCircleImage.setAttribute("x", centerX - (centerCircleImageWidth / 2));
+      centerCircleImage.setAttribute("y", centerY - (centerCircleImageHeight / 2));
       centerCircleImageContainer.appendChild(centerCircleImage);
-      
-    },    
-    setSpinDestinations = function() {
+
+    },
+    setSpinDestinations = function () {
 
       //console.log(dataObj.numSpins)
-      if(numSpins == 0){
+      if (numSpins == 0) {
 
         showToast(disabledText);
         isDisabled = true;
@@ -209,7 +209,7 @@ function Spin2WinWheel() {
         return;
       }
 
-      if(hasProbability){
+      if (hasProbability) {
 
         return;
       }
@@ -224,7 +224,7 @@ function Spin2WinWheel() {
           if (spinDestinationArray[i] > numSegments || spinDestinationArray[i] === 0) {
             showInitError(initError1);
 
-            
+
             return;
           }
           //make it zero based - this allows the author to set destinations using 1 as the first one (UX FTW!)
@@ -242,18 +242,18 @@ function Spin2WinWheel() {
 
       //console.log(spinDestinationArray)
 
-      if(clickToSpin){
+      if (clickToSpin) {
         createClickToSpin();
-      } else{
+      } else {
         createDraggable();
       }
-      
+
       //showIntroText();
     },
-    randomBetween = function(min, max) {
+    randomBetween = function (min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
     },
-    drawSegments = function() {
+    drawSegments = function () {
       var x1, x2, y1, y2, d, p, g, t, tn, destFill;
       for (var i = 0; i < numSegments; i++) {
         //startAngle = endAngle;
@@ -309,11 +309,11 @@ function Spin2WinWheel() {
       addValues()
 
     },
-    drawSegmentStrokes = function() {
+    drawSegmentStrokes = function () {
 
       for (var i = 0; i < numSegments; i++) {
 
-        var l = document.createElementNS(xmlns, 'line');  
+        var l = document.createElementNS(xmlns, 'line');
         l.setAttributeNS(null, 'x1', centerX);
         l.setAttributeNS(null, 'x2', segmentArray[i].x2);
         l.setAttributeNS(null, 'y1', centerY);
@@ -329,7 +329,7 @@ function Spin2WinWheel() {
       }
 
     },
-    addValues = function() {
+    addValues = function () {
 
       for (var i = 0; i < numSegments; i++) {
 
@@ -351,19 +351,19 @@ function Spin2WinWheel() {
 
           var lines = segmentValuesArray[i].value.split('^'), tn, ts;
 
-          lines.forEach(function (value,index) {
-              tn = document.createTextNode(value);
-              ts = document.createElementNS(xmlns, "tspan");
+          lines.forEach(function (value, index) {
+            tn = document.createTextNode(value);
+            ts = document.createElementNS(xmlns, "tspan");
 
-              ts.setAttributeNS(null,'dy',  (index) ? "1.2em" : 0);
+            ts.setAttributeNS(null, 'dy', (index) ? "1.2em" : 0);
 
-              ts.setAttributeNS(null,'x',centerX);
+            ts.setAttributeNS(null, 'x', centerX);
 
-              ts.setAttributeNS(null,'text-anchor','middle');
+            ts.setAttributeNS(null, 'text-anchor', 'middle');
 
-              ts.appendChild(tn);
+            ts.appendChild(tn);
 
-              t.appendChild(ts);
+            t.appendChild(ts);
           });
 
           g.appendChild(t);
@@ -388,7 +388,7 @@ function Spin2WinWheel() {
       })
 
     },
-    getWheel = function() {
+    getWheel = function () {
 
       var g = document.createElementNS(xmlns, 'g');
       var c = document.createElementNS(xmlns, 'circle');
@@ -405,7 +405,7 @@ function Spin2WinWheel() {
 
       return g;
     },
-    getCenterCircle = function() {
+    getCenterCircle = function () {
 
       var c = document.createElementNS(xmlns, 'circle');
 
@@ -419,24 +419,24 @@ function Spin2WinWheel() {
 
       return c;
     },
-    onPegTweenStart = function() {
+    onPegTweenStart = function () {
       pegSnd.play();
     },
-    onWheelPress = function() {
+    onWheelPress = function () {
 
       toast.style.visibility = 'hidden';
- 
+
 
       toast.style.visibility = 'hidden';
-      cover.style.visibility = 'hidden'; 
+      cover.style.visibility = 'hidden';
 
-    },    
-    hideOverlay = function() {
+    },
+    hideOverlay = function () {
 
       toast.style.visibility = 'hidden';
-      cover.style.visibility = 'hidden'; 
+      cover.style.visibility = 'hidden';
       wheelContainer.removeEventListener('click', hideOverlay);
-      
+
       gsap.set('#mainContent', {
         filter: 'blur(0)'
       })
@@ -446,21 +446,21 @@ function Spin2WinWheel() {
 
 
 
-    },    
-    onButtonPress = function() {
-      
+    },
+    onButtonPress = function () {
+
       toast.style.visibility = 'hidden';
       cover.style.visibility = 'hidden';
       spinButton.onclick = null;
-      spinMultiplier +=2;
+      spinMultiplier += 2;
 
     },
-    onWheelDragEnd = function() {
+    onWheelDragEnd = function () {
 
       disableWheel();
-      
+
     },
-    throwUpdate = function(e) {
+    throwUpdate = function (e) {
       //this deals with the peg ticker (at the top) and decides which direction it should flick
       //personally I think this is a nice touch - hope you do too!
       oldWheelPos = currentWheelPos;
@@ -475,7 +475,7 @@ function Spin2WinWheel() {
 
           rotation: rotation
         }, {
-          duration: 0.2, 
+          duration: 0.2,
           onStart: (hasSound) ? onPegTweenStart : null,
           rotation: 0,
           ease: 'back'
@@ -485,18 +485,18 @@ function Spin2WinWheel() {
       gsap.set(valueContainer, {
         rotation: wheelProp('rotation')
       })
-      
+
     },
-    throwComplete = function() {
+    throwComplete = function () {
 
 
       //work out where the wheel lands
       currentWheelRotation = wheelProp('rotation');
       var normalizedRotation = Math.round(currentWheelRotation % 360);
-      normalizedRotation = (normalizedRotation > 0) ? 360 - normalizedRotation : normalizedRotation;      
+      normalizedRotation = (normalizedRotation > 0) ? 360 - normalizedRotation : normalizedRotation;
 
-      normalizedRotation = (normalizedRotation < 0) ? normalizedRotation *= -1 : normalizedRotation;     
-            
+      normalizedRotation = (normalizedRotation < 0) ? normalizedRotation *= -1 : normalizedRotation;
+
 
       var segId = Math.round(normalizedRotation / rotationStep);
       var winningSegment = segmentArray[segId].path;
@@ -530,35 +530,35 @@ function Spin2WinWheel() {
       enableWheel();
 
     },
-    updateWheelBounds = function(){
-      
-      if(clickToSpin)return;
-      
+    updateWheelBounds = function () {
+
+      if (clickToSpin) return;
+
       wheelDragger[0].applyBounds({
         minRotation: spinDirection * -infiniteNumber,
         maxRotation: currentWheelRotation
-      });      
-    },  
-    getRandomSpinFunction = function(multiplier) {
-      var f = function(endValue) {
+      });
+    },
+    getRandomSpinFunction = function (multiplier) {
+      var f = function (endValue) {
         //console.log(endValue)
         return (Math.round((endValue / rotationStep)) * rotationStep) - multiplier
       }
       return f;
     },
-    getRandomClickSpin = function() {
+    getRandomClickSpin = function () {
       var val = - (rotationStep * randomBetween(0, numSegments)) - numRevsPerDestination * spinMultiplier
       return val
     },
-    getProbabilityClickSpin = function(){
+    getProbabilityClickSpin = function () {
       var probId = Math.floor(Math.random() * probabilityArray.length);
       var probSeg = probabilityArray[probId];
       var val = - (rotationStep * probSeg) - numRevsPerDestination * spinMultiplier
-      
+
       return val
 
     },
-    createDraggable = function() {
+    createDraggable = function () {
       wheelDragger = Draggable.create(wheel, {
         type: 'rotation',
         bounds: {
@@ -567,10 +567,10 @@ function Spin2WinWheel() {
         },
         inertia: true,
         ease: 'back(0.2)',
-        snap: (randomSpins) ?  getRandomSpinFunction(0) : [spinDestinationArray[spinCount]],
+        snap: (randomSpins) ? getRandomSpinFunction(0) : [spinDestinationArray[spinCount]],
         throwResistance: 0,
         minDuration: minSpinDuration,
-        maxDuration: minSpinDuration,        
+        maxDuration: minSpinDuration,
         onThrowComplete: throwComplete,
         onPress: onWheelPress,
         onDrag: throwUpdate,
@@ -581,91 +581,91 @@ function Spin2WinWheel() {
       })
     },
 
-    checkHasProbability = function(){
-      
+    checkHasProbability = function () {
+
       hasProbability = true;
-      segmentValuesArray.forEach( function(el, val){
+      segmentValuesArray.forEach(function (el, val) {
         //console.log(!isNaN(el.probability))
         //if(!el.probability){
-        if(isNaN(el.probability)){
+        if (isNaN(el.probability)) {
 
           hasProbability = false;
           //return false;
 
-        } 
+        }
       })
 
-      if(hasProbability){
+      if (hasProbability) {
 
         spinDestinationArray = [];//, numSpins)
         numSpins = (dataObj.numSpins == -1) ? infiniteNumber : parseInt(dataObj.numSpins);
         checkProbabilityValues();
-        
+
       }
 
     },
 
-    checkProbabilityValues = function(){
+    checkProbabilityValues = function () {
 
 
       var totalProb = 0;//, requiredProb = 100;
 
 
-      segmentValuesArray.forEach( function(el, val){
+      segmentValuesArray.forEach(function (el, val) {
         totalProb += el.probability;
       })
 
       requiredProb = totalProb;
 
 
-      if(Math.ceil(totalProb) == requiredProb || Math.floor(totalProb) == requiredProb){
+      if (Math.ceil(totalProb) == requiredProb || Math.floor(totalProb) == requiredProb) {
 
         createProbabilityArray();
 
       } else {
 
-        var r = confirm("Total probability: " + totalProb + ' - ' +probabilityErrorStr);
+        var r = confirm("Total probability: " + totalProb + ' - ' + probabilityErrorStr);
         if (r == true) {
-        gsap.set(wheelContainer, {
-          autoAlpha:0
-        })
-        gsap.set(wheelContainer, {
-          autoAlpha:0
-        })
-           
-        }       
-       
-        
+          gsap.set(wheelContainer, {
+            autoAlpha: 0
+          })
+          gsap.set(wheelContainer, {
+            autoAlpha: 0
+          })
+
+        }
+
+
       }
 
 
 
     }
 
-    createProbabilityArray = function(){
+  createProbabilityArray = function () {
 
-      
-      probabilityArray = [];
 
-      segmentValuesArray.forEach( function(el, val){
-        
-        for(var i = 0; i < el.probability; i++){
+    probabilityArray = [];
 
-          probabilityArray.push(val);
-        }
-      })
+    segmentValuesArray.forEach(function (el, val) {
 
+      for (var i = 0; i < el.probability; i++) {
+
+        probabilityArray.push(val);
+      }
+    })
+
+
+
+  },
+
+    showProbabilityError = function () {
 
 
     },
+    createClickToSpin = function () {
 
-    showProbabilityError = function (){
-
-
-    },
-    createClickToSpin = function(){
-
-      if(checkHasProbability()){
+      if (checkHasProbability()) {
 
         createProbabilityArray();
       }
@@ -673,84 +673,84 @@ function Spin2WinWheel() {
       //if spinTrigger is defined then they set it before
       //if it's not then we set wheel to be the button. Later the author may
       //overwrite this with their own button
-      if(spinButton){
+      if (spinButton) {
         spinButton.onclick = getTrigger();
       } else {
         spinButton = wheel;
-        wheel.onclick = getTrigger();        
-      } 
+        wheel.onclick = getTrigger();
+      }
 
-    
-      },
-    getTrigger = function(){
-         return function(){
 
-          if(hasProbability){
+    },
+    getTrigger = function () {
+      return function () {
+
+        if (hasProbability) {
 
           gsap.to(wheel, {
-            inertia:{
-            	duration:{min:minSpinDuration, max:maxSpinDuration},
-              rotation:{
-                velocity:spinDirection * randomBetween(-700, -500), 
+            inertia: {
+              duration: { min: minSpinDuration, max: maxSpinDuration },
+              rotation: {
+                velocity: spinDirection * randomBetween(-700, -500),
                 //if it's random spins then get a random spin but pass in the multiplier to ensure a long spin (plus the right slot id)
                 //if it has destinations set then use those
-                end:getProbabilityClickSpin()
+                end: getProbabilityClickSpin()
                 //end:dest
               }
             },
-            onStart:onButtonPress,
-            onUpdate:throwUpdate,
+            onStart: onButtonPress,
+            onUpdate: throwUpdate,
             ease: Back.easeOut.config(0.2),
             //overshootTolerance:0,
-            onComplete:spinComplete
-          });  
-            
-          } else {
+            onComplete: spinComplete
+          });
+
+        } else {
 
           var dest = -rotationStep * 2;
-         
+
           gsap.to(wheel, {
-            inertia:{
-            	duration:{min:minSpinDuration, max:maxSpinDuration},
-              rotation:{
-                velocity:spinDirection * randomBetween(-700, -500), 
+            inertia: {
+              duration: { min: minSpinDuration, max: maxSpinDuration },
+              rotation: {
+                velocity: spinDirection * randomBetween(-700, -500),
                 //if it's random spins then get a random spin but pass in the multiplier to ensure a long spin (plus the right slot id)
                 //if it has destinations set then use those
-                end:(randomSpins) ? getRandomClickSpin(): [spinDestinationArray[spinCount]]
+                end: (randomSpins) ? getRandomClickSpin() : [spinDestinationArray[spinCount]]
                 //end:dest
               }
             },
-            onStart:onButtonPress,
-            onUpdate:throwUpdate,
+            onStart: onButtonPress,
+            onUpdate: throwUpdate,
             ease: Back.easeOut.config(0.2),
             //overshootTolerance:0,
-            onComplete:spinComplete
-          }); 
+            onComplete: spinComplete
+          });
 
-          }         
-        }      
+        }
+      }
     },
-    spinComplete = function() {
+    spinComplete = function () {
 
       //work out where the wheel lands
       currentWheelRotation = wheelProp('rotation');
       var normalizedRotation = Math.round(currentWheelRotation % 360);
       normalizedRotation = (normalizedRotation > 0) ? 360 - normalizedRotation : normalizedRotation;
 
-      normalizedRotation = (normalizedRotation < 0) ? normalizedRotation *= -1 : normalizedRotation;        
-      
+      normalizedRotation = (normalizedRotation < 0) ? normalizedRotation *= -1 : normalizedRotation;
+
       var segId = Math.round(normalizedRotation / rotationStep);
       var winningSegment = segmentArray[segId].path;
 
       showResult(Math.abs(segId));
-      
+
       //randomSpins is true if no destinations have been set
       if (randomSpins) {
         //this means no destinations have been set        
         if (numSpins > -1) {
           //this means no destinations have been set AND numSpins has been set to a positive number          
           spinCount++;
-          
+
         } else {
           //this means no destinations have been set AND numSpins is -1 meaning you can spin randomly forever
           //so stop executing anything else
@@ -766,10 +766,10 @@ function Spin2WinWheel() {
         endGame();
         return;
       }
-      
+
       spinButton.onclick = getTrigger();
-    },      
-    endGame = function() {
+    },
+    endGame = function () {
 
       //prevent the wheel being dragged once the game has finished
       disableWheel();
@@ -786,21 +786,21 @@ function Spin2WinWheel() {
         delay: popupHideDelay
       })
 
-      onGameEnd({gameId:gameId, target:thisWheel, results:gameResultsArray});
+      onGameEnd({ gameId: gameId, target: thisWheel, results: gameResultsArray });
 
     },
-    disableWheel = function() {
-      if(clickToSpin)return;
+    disableWheel = function () {
+      if (clickToSpin) return;
       wheelDragger[0].disable();
     },
-    enableWheel = function() {
-      if(clickToSpin)return;
+    enableWheel = function () {
+      if (clickToSpin) return;
       wheelDragger[0].enable();
     },
-    showResult = function(e) {
-      
+    showResult = function (e) {
+
       updateWheelBounds();
-      
+
       var resultObj;
 
       //if it's a number then it's a segment
@@ -808,33 +808,46 @@ function Spin2WinWheel() {
         //the JSON contains a property that defines whether the segment is a winner or loser. Useful for backend decisions.
         //var resultStr1 = (segmentValuesArray[e].win) ? 'WIN:' : 'LOSE:';
         var resultStr2 = segmentValuesArray[e].resultText;
+        showToast1('<h2 id="countdowntimer">10 </h2>  ');
 
-        showToast(resultStr2);
+        setTimeout(
+          function () {
+            toast.classList.remove("toast1");
+
+            showToast(resultStr2);
+          }, 10000);
+        // showToast(resultStr2);
         //create a result object 
-        resultObj = {target:thisWheel, type:'result', spinCount:spinCount, win:segmentValuesArray[e].win, msg:segmentValuesArray[e].resultText, gameId:gameId, userData:segmentValuesArray[e].userData};
-        
+        resultObj = { target: thisWheel, type: 'result', spinCount: spinCount, win: segmentValuesArray[e].win, msg: segmentValuesArray[e].resultText, gameId: gameId, userData: segmentValuesArray[e].userData };
+
         //fire the result event
+        setTimeout('', 1000000);
+
         onResult(resultObj);
-        
+
         //add result to gameResultsArray
         gameResultsArray.push(resultObj);
       }
     },
-    showIntroText = function(str) {
+    showIntroText = function (str) {
       showToast(introText);
     },
-  showInitError = function(str) {
+    showInitError = function (str) {
       gsap.set([wheelContainer, spinButton], {
         autoAlpha: 0
-      }) 
-      gsap.delayedCall(showErrorDelay, function(){
+      })
+      gsap.delayedCall(showErrorDelay, function () {
         alert(str)
-      });     
+      });
     },
-    showToast = function(str) {
-      toast.style.visibility = 'visible';      
-      cover.style.visibility = 'visible';      
+    showToast = function (str) {
+
+      toast.style.visibility = 'visible';
+      cover.style.visibility = 'visible';
+
+
       toastText.innerHTML = str;
+
       gsap.fromTo(toast, {
         y: 20,
         opacity: 0
@@ -851,93 +864,130 @@ function Spin2WinWheel() {
         filter: 'blur(3px)'
       })
 
-      gsap.delayedCall(popupHideDelay, hideOverlay )
+      gsap.delayedCall(popupHideDelay, hideOverlay)
 
       wheelContainer.addEventListener('click', (() => {
         gsap.killTweensOf(hideOverlay);
-        hideOverlay();      
-        }))
-      
+        hideOverlay();
+      }))
+
     },
-    checkNumSegments = function() {
+    showToast1 = function (str) {
+
+      toast.style.visibility = 'visible';
+      cover.style.visibility = 'visible';
+      // toastText.classList
+      toast.classList.add("toast1");
+
+      toastText.innerHTML = str;
+
+      gsap.fromTo(toast, {
+        y: 20,
+        opacity: 0.5
+      }, {
+        duration: 5,
+        y: 0,
+        opacity: 1,
+        delay: 0.2,
+        //onStart:onresize,
+        ease: 'elastic(0.7, 0.7)'
+      })
+
+      // gsap.set('#mainContent', {
+      //   filter: 'blur(3px)'
+      // })
+
+      var timeleft = 10;
+      var downloadTimer = setInterval(function () {
+        timeleft--;
+        document.getElementById("countdowntimer").textContent = timeleft;
+        if (timeleft <= 0)
+
+          clearInterval(downloadTimer);
+
+      }, 1000);
+
+
+    },
+    checkNumSegments = function () {
 
       if (numSegments <= 1) {
         showInitError(initError2)
         gsap.set(wheelSVG, {
           visibility: 'hidden'
         })
-        
+
       }
-      
+
 
     },
-    setSpinTrigger = function(){  
-      
-      if(spinButton){
+    setSpinTrigger = function () {
+
+      if (spinButton) {
         clickToSpin = true;
       }
-      if(clickToSpin){
-        
-        if(spinButton){
-          spinButton.onclick = getTrigger(); 
+      if (clickToSpin) {
+
+        if (spinButton) {
+          spinButton.onclick = getTrigger();
         } else {
-          
-          wheel.onclick = getTrigger(); 
-        }               
+
+          wheel.onclick = getTrigger();
+        }
       } else {
-        
+
       }
-  },
-  checkRestriction = function(){
-    
+    },
+    checkRestriction = function () {
+
       //if (restrictPlayDuration > 0) {
-        onRestrict(restrictPlayDuration);
-        
+      onRestrict(restrictPlayDuration);
+
       //}    
-  },  
-    onResult = function(e){
-        thisWheel.onResult(e)
-      },
-   onError = function(e){
-        thisWheel.onError(e)
-      },
-   onGameEnd = function(e){
-        thisWheel.onGameEnd(e)
-      },
-    onRestrict = function(e){
-        thisWheel.onRestrict(e)
-      } 
- 
+    },
+    onResult = function (e) {
+      thisWheel.onResult(e)
+    },
+    onError = function (e) {
+      thisWheel.onError(e)
+    },
+    onGameEnd = function (e) {
+      thisWheel.onGameEnd(e)
+    },
+    onRestrict = function (e) {
+      thisWheel.onRestrict(e)
+    }
+
   this.onResult = onResult;
   this.onError = onError;
   this.onGameEnd = onGameEnd;
 
-  this.onRestrict = onRestrict;  
- 
- 
-  this.getGameProgress = function(){  return gameResultsArray; };
-  this.init = function(e) {
-  //if(String.fromCharCode(57,66,51).toLowerCase() !=  _s){_uu();}       
-  //console.log(e)
-    if(!e){
+  this.onRestrict = onRestrict;
+
+
+  this.getGameProgress = function () { return gameResultsArray; };
+  this.init = function (e) {
+    //if(String.fromCharCode(57,66,51).toLowerCase() !=  _s){_uu();}       
+    //console.log(e)
+    if (!e) {
       setInitPos();
       showInitError('PLEASE INCLUDE THE INIT OBJECT');
       return;
     }
     svgWidth = e.data.svgWidth;
-    svgHeight =  e.data.svgHeight;
+    svgHeight = e.data.svgHeight;
     wheelSVG.setAttribute('viewBox', '0 0 ' + svgWidth + ' ' + e.data.svgHeight);
     dataObj = e.data;
-    onGameEnd = (e.onGameEnd) ? e.onGameEnd : function(){};
-    onResult =  (e.onResult) ? e.onResult : function(){};
-    onError = (e.onError) ? e.onError : function(){};
-    onRestrict = (e.onRestrict) ? e.onRestrict : function(){};
+    onGameEnd = (e.onGameEnd) ? e.onGameEnd : function () { };
+    onResult = (e.onResult) ? e.onResult : function () { };
+    onError = (e.onError) ? e.onError : function () { };
+    onRestrict = (e.onRestrict) ? e.onRestrict : function () { };
     spinButton = (e.spinTrigger) ? e.spinTrigger : null;
     setSpinTrigger();
     setInitData();
 
     onRestrict(restrictPlayDuration);
-    
+
     setInitPos();
     drawSegments();
     setCenterCircleImage();
@@ -947,70 +997,76 @@ function Spin2WinWheel() {
     checkNumSegments();
     //checkRestriction();
 
-    
-
-    
-    
-    
-  } 
-
-  this.restart = function() {
-    if(!clickToSpin){
-        wheelDragger[0].kill();
-        currentWheelPos = oldWheelPos = null;
-        gsap.to([wheel, valueContainer], {
-          duration: 0.3,
-          rotation: '0_short',
-          onComplete: createDraggable
-        })      
-    }
-      
-       gsap.set(wheelSVG, {
-          opacity: 1
-        })
-        gsap.to([wheel, valueContainer],{
-          duration: 0.3,
-          rotation: '0_short'
-        })      
-
-      toast.style.visibility = 'hidden';
-      spinCount = 0;
-      spinMultiplier = 2;
-      gameResultsArray = [];
 
 
-      //showIntroText();
+
+
+
   }
 
-    
+  this.restart = function () {
+    if (!clickToSpin) {
+      wheelDragger[0].kill();
+      currentWheelPos = oldWheelPos = null;
+      gsap.to([wheel, valueContainer], {
+        duration: 0.3,
+        rotation: '0_short',
+        onComplete: createDraggable
+      })
+    }
+
+    gsap.set(wheelSVG, {
+      opacity: 1
+    })
+    gsap.to([wheel, valueContainer], {
+      duration: 0.3,
+      rotation: '0_short'
+    })
+
+    toast.style.visibility = 'hidden';
+    spinCount = 0;
+    spinMultiplier = 2;
+    gameResultsArray = [];
+
+
+    //showIntroText();
+  }
+
+
 }
 
-Spin2WinWheel.reset = function(){
+Spin2WinWheel.reset = function () {
 
-      document.querySelector('.wheel').innerHTML = "";
-      document.querySelector('.wheelOutline').innerHTML = "";
-      document.querySelector('.centerCircle').innerHTML = "";
-      document.querySelector('.valueContainer').innerHTML = "";
-      document.querySelector('.centerCircleImageContainer').innerHTML = "";
-      gsap.set(['.wheel', '.valueContainer'], {
-        rotation: 0
-      })      
-     gsap.set(['.wheelSVG', '.toast'],{        
-          opacity: gsap.utils.wrap([1, 0])        
-      })
+  document.querySelector('.wheel').innerHTML = "";
+  document.querySelector('.wheelOutline').innerHTML = "";
+  document.querySelector('.centerCircle').innerHTML = "";
+  document.querySelector('.valueContainer').innerHTML = "";
+  document.querySelector('.centerCircleImageContainer').innerHTML = "";
+  gsap.set(['.wheel', '.valueContainer'], {
+    rotation: 0
+  })
+  gsap.set(['.wheelSVG', '.toast'], {
+    opacity: gsap.utils.wrap([1, 0])
+  })
 
 
+}
+Spin2WinWheel.hide = function () {
+
+  gsap.set('.wheelContainer', {
+    autoAlpha: 0
+  })
+
+}
+function wait(ms) {
+  var start = new Date().getTime();
+  var end = start;
+  while (end < start + ms) {
+    end = new Date().getTime();
   }
-  Spin2WinWheel.hide = function(){
+}
+Spin2WinWheel.remove = function () {
 
-      gsap.set('.wheelContainer', {
-        autoAlpha:0
-      })
+  document.body.removeChild(document.querySelector('.wheelContainer'));
 
-  }  
-
-  Spin2WinWheel.remove = function(){
-
-      document.body.removeChild(document.querySelector('.wheelContainer'));
-
-  }  
+}  
